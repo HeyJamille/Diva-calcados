@@ -27,7 +27,7 @@ export default function Sale() {
         <h3 className="text-2xl font-semibold text-black mb-6">Sandálias em Oferta</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {produtos.sandalias.map((item) => (
-            <div key={item.id} className="bg-gray-300 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+            <div key={item.id} className="bg-gray-200 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
               <img src={item.imagem} alt={item.nome} className="text-black w-full h-48 object-cover" />
               <div className="p-4">
                 <h4 className="text-lg font-semibold text-black">{item.nome}</h4>
@@ -43,7 +43,7 @@ export default function Sale() {
         <h3 className="text-2xl font-semibold text-black mb-6">Lingeries em Oferta</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {produtos.lingeries.map((item) => (
-            <div key={item.id} className="bg-gray-300 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
+            <div key={item.id} className="bg-gray-200 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition">
               <img src={item.imagem} alt={item.nome} className="text-black w-full h-48 object-cover" />
               <div className="p-4">
                 <h4 className="text-lg font-semibold text-black">{item.nome}</h4>

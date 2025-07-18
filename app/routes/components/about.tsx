@@ -1,14 +1,14 @@
 export default function About() {
   return (
     <section className="bg-black text-gray-200 py-16 px-6 md:px-24">
-      <div className="flex flex-col md:flex-row items-center gap-10">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-10">
 
         {/* Image */}
-        <div className="w-full md:w-1/2">
+        <div className="max-w-96 group overflow-hidden rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.03]">
           <img
             src="./demonstrative/sandalia.jpg"
             alt="Imagem sobre lingerie e sandálias"
-            className="rounded-2xl shadow-xl w-full object-cover"
+            className="w-full h-auto object-cover aspect-[4/5] transition duration-500 group-hover:scale-105"
           />
         </div>
 
