@@ -9,7 +9,10 @@ export default function Menu() {
             <a className="text-lg">Home</a>
           </li>
           <li>
-            <a className="text-lg">Produtos</a>
+            <a href="/produtos/langeries" className="text-lg">Langeries</a>
+          </li>
+          <li>
+            <a href="#" className="text-lg">Sandálias</a>
           </li>
           <li>
             <a className="text-lg">Sobre</a>
