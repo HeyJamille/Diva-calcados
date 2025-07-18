@@ -2,18 +2,18 @@ import React from 'react'
 
 const produtos = {
   sandalias: [
-    { id: 1, nome: 'Sandália Elegante', imagem: '', preco: 'R$ 99,90' },
-    { id: 2, nome: 'Sandália Nude', imagem: '', preco: 'R$ 89,90' },
-    { id: 3, nome: 'Sandália Salto Fino', imagem: '', preco: 'R$ 119,90' },
-    { id: 4, nome: 'Sandália Fashion', imagem: '', preco: 'R$ 109,90' },
-    { id: 5, nome: 'Sandália Preta', imagem: '', preco: 'R$ 95,00' },
+    { id: 1, nome: 'Sandália Elegante', imagem: '#', preco: 'R$ 99,90' },
+    { id: 2, nome: 'Sandália Nude', imagem: '#', preco: 'R$ 89,90' },
+    { id: 3, nome: 'Sandália Salto Fino', imagem: '#', preco: 'R$ 119,90' },
+    { id: 4, nome: 'Sandália Fashion', imagem: '#', preco: 'R$ 109,90' },
+    { id: 5, nome: 'Sandália Preta', imagem: '#', preco: 'R$ 95,00' },
   ],
   lingeries: [
-    { id: 6, nome: 'Conjunto Renda Preto', imagem: '', preco: 'R$ 79,90' },
-    { id: 7, nome: 'Body Transparente', imagem: '', preco: 'R$ 89,90' },
-    { id: 8, nome: 'Sutiã com Bojo', imagem: '', preco: 'R$ 59,90' },
-    { id: 9, nome: 'Conjunto Vermelho', imagem: '', preco: 'R$ 99,90' },
-    { id: 10, nome: 'Body Luxo', imagem: '', preco: 'R$ 129,90' },
+    { id: 6, nome: 'Conjunto Renda Preto', imagem: '#', preco: 'R$ 79,90' },
+    { id: 7, nome: 'Body Transparente', imagem: '#', preco: 'R$ 89,90' },
+    { id: 8, nome: 'Sutiã com Bojo', imagem: '#', preco: 'R$ 59,90' },
+    { id: 9, nome: 'Conjunto Vermelho', imagem: '#', preco: 'R$ 99,90' },
+    { id: 10, nome: 'Body Luxo', imagem: '#', preco: 'R$ 129,90' },
   ],
 }
 

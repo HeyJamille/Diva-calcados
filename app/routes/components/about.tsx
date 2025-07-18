@@ -6,7 +6,7 @@ export default function About() {
         {/* Image */}
         <div className="w-full md:w-1/2">
           <img
-            src="/caminho/para/sua-imagem.jpg"
+            src="#"
             alt="Imagem sobre lingerie e sandálias"
             className="rounded-2xl shadow-xl w-full object-cover"
           />
