@@ -17,7 +17,7 @@ export default function Home() {
       <Contact />
 
       <a className="fixed bottom-5 right-5 bg-green-500 rounded-full p-3 shadow-lg cursor-pointer hover:bg-green-600 transition"
-        href="https://wa.me/5511912345678" >
+        href="https://wa.me/85985595993" >
         <FaWhatsapp className="h-8 w-8 text-white" />
       </a>
     </article>
