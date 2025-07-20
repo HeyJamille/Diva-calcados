@@ -2,7 +2,7 @@ import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section className="h-auto bg-black text-gray-200 px-6 py-16 md:px-24">
+    <section id="contact" className="h-auto bg-black text-gray-200 px-6 py-16 md:px-24">
       <div className="max-w-3xl mx-auto text-center">
 
         <h2 className="text-4xl font-bold text-white mb-4">Fale Conosco</h2>

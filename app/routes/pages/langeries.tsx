@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaShoppingCart, FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaShoppingCart, FaHeart, FaRegHeart, FaWhatsapp } from 'react-icons/fa';
 import Menu from '../components/menu';
+import { useCart } from '../../context/cartContext'; 
 
 type Produto = {
   id: number;
@@ -31,9 +32,11 @@ export default function LingeriePage() {
 
   const closeModal = () => setSelectedItem(null);
 
-  const addToCart = () => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
     if (selectedItem) {
-      setCart((prev) => [...prev, selectedItem]);
+      addToCart(selectedItem);
       closeModal();
     }
   };
@@ -123,7 +126,7 @@ export default function LingeriePage() {
               {/* Botões */}
               <div className="mt-6 flex justify-between gap-4">
                 <button
-                  onClick={addToCart}
+                  onClick={handleAddToCart}
                   className="flex-1 flex items-center justify-center gap-2 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition"
                 >
                   <FaShoppingCart />
@@ -140,6 +143,10 @@ export default function LingeriePage() {
           </div>
         )}
       </section>
+      <a className="fixed bottom-5 right-5 bg-green-500 rounded-full p-3 shadow-lg cursor-pointer hover:bg-green-600 transition"
+        href="https://wa.me/5511912345678" >
+        <FaWhatsapp className="h-8 w-8 text-white" />
+      </a>
     </article>
   );
 }
