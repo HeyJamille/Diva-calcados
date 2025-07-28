@@ -20,11 +20,11 @@ export default function About() {
             Com um olhar sensível aos detalhes, desenvolvo projetos que unem elegância, conforto e autenticidade.
           </p>
           <p className="text-lg leading-relaxed text-gray-400 mt-4">
-            Este espaço foi criado para compartilhar minha visão através das lingeries e sandálias da coleção <span className="text-white italic">LUXE</span>.
+            Este espaço foi criado para compartilhar minha visão através das lingeries e sandálias da coleção <span className="text-white italic">DIVA</span>.
             Cada peça é pensada para realçar sua beleza com sofisticação e atitude – seja nos momentos mais íntimos ou no seu dia a dia.
           </p>
           <p className="text-lg leading-relaxed text-gray-400 mt-4">
-            Aqui, você encontra peças únicas que celebram sua essência. Explore, sinta-se confiante e viva o seu melhor estilo com a <span className="text-white">LUXE.</span>
+            Aqui, você encontra peças únicas que celebram sua essência. Explore, sinta-se confiante e viva o seu melhor estilo com a <span className="text-white">DIVA.</span>
           </p>
         </div>
 

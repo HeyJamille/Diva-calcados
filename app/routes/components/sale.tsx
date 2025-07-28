@@ -2,18 +2,18 @@ import React from 'react'
 
 const produtos = {
   sandalias: [
-    { id: 1, nome: 'Sandália Elegante', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 99,90' },
-    { id: 2, nome: 'Sandália Nude', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 89,90' },
-    { id: 3, nome: 'Sandália Salto Fino', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 119,90' },
-    { id: 4, nome: 'Sandália Fashion', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 109,90' },
-    { id: 5, nome: 'Sandália Preta', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 95,00' },
+    { id: 1, nome: 'Sandália 01', imagem: './products/sandalias/sandalia01.jpeg', preco: 'Negociável' },
+    { id: 2, nome: 'Sandália 02', imagem: './products/sandalias/sandalia02.jpeg', preco: 'Negociável' },
+    { id: 3, nome: 'Sandália 03', imagem: './products/sandalias/sandalia03.jpeg', preco: 'Negociável' },
+    { id: 4, nome: 'Sandália 04', imagem: './products/sandalias/sandalia04.jpeg', preco: 'Negociável' },
+    { id: 5, nome: 'Sandália 05', imagem: './products/sandalias/sandalia05.jpeg', preco: 'Negociável' },
   ],
   lingeries: [
-    { id: 6, nome: 'Conjunto Renda Preto', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 79,90' },
-    { id: 7, nome: 'Body Transparente', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 89,90' },
-    { id: 8, nome: 'Sutiã com Bojo', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 59,90' },
-    { id: 9, nome: 'Conjunto Vermelho', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 99,90' },
-    { id: 10, nome: 'Body Luxo', imagem: './demonstrative/sandalia.jpg', preco: 'R$ 129,90' },
+    { id: 6, nome: 'Lingerie 01', imagem: './products/lingeries/lingerie01.jpeg', preco: 'Negociável' },
+    { id: 7, nome: 'Lingerie 02', imagem: './products/lingeries/lingerie02.jpeg', preco: 'Negociável' },
+    { id: 8, nome: 'Lingerie 03', imagem: './products/lingeries/lingerie03.jpeg', preco: 'Negociável' },
+    { id: 9, nome: 'Lingerie 04', imagem: './products/lingeries/lingerie04.jpeg', preco: 'Negociável' },
+    { id: 10, nome: 'Lingerie 05', imagem: './products/lingeries/lingerie05.jpeg', preco: 'Negociável' },
   ],
 }
 

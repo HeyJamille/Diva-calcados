@@ -11,7 +11,7 @@ export default function Menu() {
     <header className="relative">
       {/* Barra superior */}
       <aside className="flex justify-between items-center p-5 md:px-10 bg-white shadow-md">
-        <h1 className="text-2xl font-semibold">LUXE</h1>
+        <h1 className="text-2xl font-semibold">DIVA</h1>
 
         {/* Menu Desktop */}
         <nav className="hidden md:flex gap-10">
@@ -71,7 +71,7 @@ export default function Menu() {
         aria-hidden={!isOpen}
       >
         <div className="flex justify-between items-center p-5 border-b">
-          <h2 className="text-xl font-semibold">LUXE</h2>
+          <h2 className="text-xl font-semibold">DIVA</h2>
           <button onClick={() => setIsOpen(false)} aria-label="Fechar menu">
             <img className="h-8 w-8" src="/icons/close.svg" alt="Fechar" />
           </button>

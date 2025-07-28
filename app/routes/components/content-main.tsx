@@ -9,7 +9,7 @@ export default function ContentMain() {
 
         <div className="space-y-5 text-base md:text-lg text-gray-700 leading-relaxed max-w-xl">
           <p>
-            Na <span className="font-semibold text-gray-900">LUXE</span>, cada detalhe é pensado para revelar o que há de mais autêntico em você — com elegância, conforto e atitude.
+            Na <span className="font-semibold text-gray-900">DIVA</span>, cada detalhe é pensado para revelar o que há de mais autêntico em você — com elegância, conforto e atitude.
           </p>
           <p>
             Vista-se de confiança. Viva sua beleza do seu jeito.
