@@ -25,7 +25,7 @@ export default function ContentMain() {
       <section className="max-w-96">
         <div className="group overflow-hidden rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.03]">
           <img
-            src="/demonstrative/sandalia.jpg"
+            src="/products/sandalias/sandalia10.jpeg"
             alt="Sandália de luxo"
             className="w-full h-auto object-cover aspect-[4/5] transition duration-500 group-hover:scale-105"
           />

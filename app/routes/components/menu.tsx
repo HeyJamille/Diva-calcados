@@ -16,15 +16,14 @@ export default function Menu() {
         {/* Menu Desktop */}
         <nav className="hidden md:flex gap-10">
           <a href="/" className="text-lg">Home</a>
-          <a href="/produtos/langeries" className="text-lg">Langeries</a>
+          <a href="/produtos/lingeries" className="text-lg">Lingeries</a>
+          <a href="/produtos/roupas-bebe" className="text-lg">Roupas de Bebê</a>
           <a href="/produtos/sandalias" className="text-lg">Sandálias</a>
-          <a href="#about" className="text-lg">Sobre</a>
-          <a href="#contact" className="text-lg">Contato</a>
+          <a href="/produtos/bolsas" className="text-lg">Bolsas</a>
         </nav>
 
         {/* Icons Desktop */}
         <div className="hidden md:flex gap-5 items-center">
-          <img className="h-6 w-6 cursor-pointer" src="/icons/user.svg" alt="Usuário" />
           <img className="h-6 w-6 cursor-pointer" src="/icons/heart.svg" alt="Favoritos" />
           <div className="relative cursor-pointer" onClick={() => setIsOpenCart(true)}>
             <img className="h-6 w-6" src="/icons/bag.svg" alt="Carrinho" />
@@ -80,10 +79,10 @@ export default function Menu() {
 
         <nav className="flex flex-col p-4 gap-5">
           <a href="/" className="text-lg" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="/produtos/langeries" className="text-lg" onClick={() => setIsOpen(false)}>Langeries</a>
+          <a href="/produtos/lingeries" className="text-lg" onClick={() => setIsOpen(false)}>Lingeries</a>
+          <a href="/produtos/roupas-bebe" className="text-lg" onClick={() => setIsOpen(false)}>Roupas de Bebê</a>
           <a href="/produtos/sandalias" className="text-lg" onClick={() => setIsOpen(false)}>Sandálias</a>
-          <a href="#about" className="text-lg" onClick={() => setIsOpen(false)}>Sobre</a>
-          <a href="#contact" className="text-lg" onClick={() => setIsOpen(false)}>Contato</a>
+          <a href="/produtos/bolsas" className="text-lg" onClick={() => setIsOpen(false)}>Bolsas</a>
         </nav>
 
         <div className="flex gap-5 items-center justify-center mt-5">

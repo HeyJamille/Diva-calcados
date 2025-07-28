@@ -2,24 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { FaShoppingCart, FaHeart, FaRegHeart, FaWhatsapp } from 'react-icons/fa';
 import Menu from '../components/menu';
 import { useCart } from '../../context/cartContext'; 
-import { sandalias } from '../data/sandalias';
-import type { Sandalias } from '../types/products';
+import { roupasBebe } from '../data/roupas-bebe';
+import type { RoupasBebe } from '../types/products';
 
-export default function SandaliasPage() {
-  const [selectedItem, setSelectedItem] = useState<Sandalias | null>(null);
-  const [cart, setCart] = useState<Sandalias[]>([]);
+export default function RoupasBebePages() {
+  const [selectedItem, setSelectedItem] = useState<RoupasBebe | null>(null);
+  const [cart, setCart] = useState<RoupasBebe[]>([]);
   const [favorites, setFavorites] = useState<number[]>([]);
 
   const closeModal = () => setSelectedItem(null);
 
   const { addToCart } = useCart();
   
-	const handleAddToCart = () => {
-		if (selectedItem) {
-			addToCart(selectedItem);
-			closeModal();
-			}
-	};
+  const handleAddToCart = () => {
+    if (selectedItem) {
+      addToCart(selectedItem);
+      closeModal();
+      }
+  };
 
   const toggleFavorite = (id: number) => {
     setFavorites((prev) =>
@@ -45,7 +45,7 @@ export default function SandaliasPage() {
       <section className="bg-white text-gray-800 min-h-screen px-6 py-10 md:px-10">
         {/* Cabeçalho */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
-          <h2 className="text-4xl font-bold text-black mb-4 md:mb-0">Sandálias</h2>
+          <h2 className="text-4xl font-bold text-black mb-4 md:mb-0">Roupas de Bebê</h2>
           <input
             className="p-2 bg-gray-200 text-md text-black w-full md:w-60 rounded-lg"
             type="text"
@@ -55,7 +55,7 @@ export default function SandaliasPage() {
 
         {/* Lista de produtos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {sandalias.map((product: Sandalias) => (
+          {roupasBebe.map((product: RoupasBebe) => (
             <div
               key={product.id}
               onClick={() => setSelectedItem(product)}
@@ -74,7 +74,7 @@ export default function SandaliasPage() {
         {/* Modal */}
         {selectedItem && (
           <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 overflow-y-auto p-4">
-            <div className="flex flex flex-col md:flex-row  items-center justify-center bg-white rounded-lg shadow-lg p-6 w-[700px] relative gap-6">
+            <div className="flex flex-col md:flex-row items-center justify-center bg-white rounded-lg shadow-lg p-6 w-[700px] relative gap-6">
               <img
                 src={selectedItem.imagem}
                 alt={selectedItem.nome}
