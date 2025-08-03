@@ -8,6 +8,7 @@ import Menu from "../components/menu";
 import { ModalProduto } from "../components/modalProduct";
 import { Cabecalho } from "../components/cabecalho";
 import ProdutoCard from "../components/productCard";
+import Rodape from "../components/rodape";
 
 // context
 import { useCart } from "../../context/cartContext";
@@ -84,6 +85,9 @@ export default function SandaliasPage() {
       >
         <FaWhatsapp className="h-8 w-8 text-white" />
       </a>
+
+      {/* Footer */}
+      <Rodape />
     </article>
   );
 }

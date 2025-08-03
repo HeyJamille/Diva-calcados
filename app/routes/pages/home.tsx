@@ -16,16 +16,12 @@ import ContentMain from "../components/content-main";
 export default function Home() {
   // Message
   const mensagem = useMemo(() => {
-    const mensagem = `
-    Olá! 👋 
-    \n
-    Tenho interesse em saber mais sobre os produtos que vocês oferecem. 
-    \n
-    Poderia me passar mais informações? Obrigado!`;
+    const texto = `Olá! 👋
 
-    const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
-      mensagem
-    )}`;
+    Tenho interesse em saber mais sobre os produtos que vocês oferecem.
+    Poderia me passar mais informações?`;
+
+    const url = `https://wa.me/5585999063736?text=${encodeURIComponent(texto)}`;
     return url;
   }, []);
 

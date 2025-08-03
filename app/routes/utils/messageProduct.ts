@@ -8,11 +8,10 @@ export function generateWhatsAppMessage(cart: ProdutoBase[]): string {
     .join("\n");
 
   const mensagem = `Olá! 👋
-    \n
+
     Tenho interesse nos seguintes produtos:
     ${textoProdutos}
-    \n
-    Poderia me passar mais informações? Obrigado!`;
+    Poderia me passar mais informações?`;
 
   const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
     mensagem

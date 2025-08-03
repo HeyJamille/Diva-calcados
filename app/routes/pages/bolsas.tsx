@@ -87,6 +87,7 @@ export default function BolsasPages() {
         <FaWhatsapp className="h-8 w-8 text-white" />
       </a>
 
+      {/* Footer */}
       <Rodape />
     </article>
   );
