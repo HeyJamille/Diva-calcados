@@ -1,28 +1,40 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  type ReactNode,
+} from "react";
 
-type Produto = {
-  id: number;
-  nome: string;
-  imagem: string;
-  preco: string;
-  cores: string[];
-  tamanhos: string[];
-  corSelecionada?: string;
-  tamanhoSelecionado?: string;
-};
+// Type
+import { type ProdutoBase } from "../routes/types/products";
 
 type CartContextType = {
-  cart: Produto[];
-  addToCart: (produto: Produto) => void;
-  removeFromCart: (id: number) => void; // <- Adicione isso
+  cart: ProdutoBase[];
+  addToCart: (produto: ProdutoBase) => void;
+  removeFromCart: (id: number) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<Produto[]>([]);
+  // Inicializa o estado pegando do localStorage só uma vez
+  const [cart, setCart] = useState<ProdutoBase[]>(() => {
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("cart");
+      return savedCart ? JSON.parse(savedCart) : [];
+    }
+    return [];
+  });
 
-  const addToCart = (produto: Produto) => {
+  // Sempre que cart mudar, atualiza o localStorage
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
+
+  const addToCart = (produto: ProdutoBase) => {
     setCart((prev) => [...prev, produto]);
   };
 
