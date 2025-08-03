@@ -1,34 +1,27 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
-// contexts
-import { useCart } from "../../context/cartContext"; // ajuste o path se necessário
+// Contexts
+import { useCart } from "../../context/cartContext";
+
+// Icons
 import { FiTrash } from "react-icons/fi";
 
+// Utils
+import { generateWhatsAppMessage } from "../utils/messageProduct";
+
+// Components
+import { SideMenu } from "./sideMenu";
+
 export default function Menu() {
-  const [isOpen, setIsOpen] = useState(false); // menu lateral principal
-  const [isOpenCart, setIsOpenCart] = useState(false); // menu lateral do carrinho
+  // UseState
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenCart, setIsOpenCart] = useState(false);
 
-  const { cart } = useCart();
-  const { removeFromCart } = useCart(); // importe do contexto
-  // message
-  const message = useMemo(() => {
-    if (cart.length === 0) return "";
+  // Context
+  const { cart, removeFromCart } = useCart();
 
-    const textoProdutos = cart
-      .map((item, index) => `${index + 1}. ${item.nome} - ${item.preco}`)
-      .join("\n");
-
-    const mensagem = `Olá! 👋
-      Tenho interesse nos seguintes produtos:
-      ${textoProdutos}
-      Poderia me passar mais informações? Obrigado!`;
-
-    const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
-      mensagem
-    )}`;
-
-    return url;
-  }, [cart]);
+  // Message
+  const message = generateWhatsAppMessage(cart);
 
   const handleTrash = (id: number) => {
     removeFromCart(id);
@@ -116,54 +109,9 @@ export default function Menu() {
       )}
 
       {/* Menu Lateral à Direita - Menu Principal (mobile) */}
-      <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        aria-hidden={!isOpen}
-      >
-        <div className="flex justify-between items-center p-5 border-b">
-          <h2 className="text-xl font-semibold">DIVA</h2>
-          <button onClick={() => setIsOpen(false)} aria-label="Fechar menu">
-            <img className="h-8 w-8" src="/icons/close.svg" alt="Fechar" />
-          </button>
-        </div>
+      <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} />
 
-        <nav className="flex flex-col p-4 gap-5">
-          <a href="/" className="text-lg" onClick={() => setIsOpen(false)}>
-            Home
-          </a>
-          <a
-            href="/produtos/lingeries"
-            className="text-lg"
-            onClick={() => setIsOpen(false)}
-          >
-            Lingeries
-          </a>
-          <a
-            href="/produtos/roupas-bebe"
-            className="text-lg"
-            onClick={() => setIsOpen(false)}
-          >
-            Roupas de Bebê
-          </a>
-          <a
-            href="/produtos/sandalias"
-            className="text-lg"
-            onClick={() => setIsOpen(false)}
-          >
-            Sandálias
-          </a>
-          <a
-            href="/produtos/bolsas"
-            className="text-lg"
-            onClick={() => setIsOpen(false)}
-          >
-            Bolsas
-          </a>
-        </nav>
-      </div>
-
+      {/* Menu lateral carrinho */}
       {/* Menu lateral carrinho */}
       <div
         className={`fixed top-0 right-0 h-full w-64 md:w-90 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
@@ -192,7 +140,7 @@ export default function Menu() {
                   className="flex items-center justify-around mb-4 border-b pb-2"
                 >
                   <img
-                    src={item.imagem}
+                    src={item.imagemUrl}
                     alt={item.nome}
                     className="w-16 h-16 object-cover rounded"
                   />

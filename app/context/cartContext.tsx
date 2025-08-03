@@ -18,7 +18,7 @@ type CartContextType = {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  // Inicializa o estado pegando do localStorage só uma vez
+  // Initializes the state by taking it from localStorage only once
   const [cart, setCart] = useState<ProdutoBase[]>(() => {
     if (typeof window !== "undefined") {
       const savedCart = localStorage.getItem("cart");
@@ -27,7 +27,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     return [];
   });
 
-  // Sempre que cart mudar, atualiza o localStorage
+  const [notification, setNotification] = useState<string | null>(null);
+
+  // update localStorage
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -40,7 +42,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const removeFromCart = (id: number) => {
     const removedItem = cart.find((item) => item.id === id);
-    alert(`"${removedItem?.nome}" foi removido(a) do carrinho.`);
+    if (removedItem) {
+      setNotification(`"${removedItem.nome}" foi removido(a) do carrinho.`);
+      setTimeout(() => setNotification(null), 3000); // esconde após 3s
+    }
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 

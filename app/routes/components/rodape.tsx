@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 
-export default function Contact() {
+export default function Rodape() {
   // message
   const mensagem = useMemo(() => {
     const mensagem = `

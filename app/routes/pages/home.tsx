@@ -1,18 +1,26 @@
 import { useMemo } from "react";
+
+// Context
 import { CartProvider } from "~/context/cartContext";
-import About from "../components/about";
-import Contact from "../components/contact";
-import ContentMain from "../components/content-main";
-import Menu from "../components/menu";
-import Sale from "../components/sale";
+
+// Icons
 import { FaWhatsapp } from "react-icons/fa";
 
+// Components
+import Menu from "../components/menu";
+import Sale from "../components/sale";
+import Rodape from "../components/rodape";
+import About from "../components/about";
+import ContentMain from "../components/content-main";
+
 export default function Home() {
-  // message
+  // Message
   const mensagem = useMemo(() => {
     const mensagem = `
-    Olá! 👋
+    Olá! 👋 
+    \n
     Tenho interesse em saber mais sobre os produtos que vocês oferecem. 
+    \n
     Poderia me passar mais informações? Obrigado!`;
 
     const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
@@ -28,7 +36,7 @@ export default function Home() {
         <ContentMain />
         <About />
         <Sale />
-        <Contact />
+        <Rodape />
 
         <a
           className="fixed bottom-5 right-5 bg-green-500 rounded-full p-3 shadow-lg cursor-pointer hover:bg-green-600 transition"
