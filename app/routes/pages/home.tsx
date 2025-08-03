@@ -18,8 +18,8 @@ export default function Home() {
   const mensagem = useMemo(() => {
     const texto = `Olá! 👋
 
-    Tenho interesse em saber mais sobre os produtos que vocês oferecem.
-    Poderia me passar mais informações?`;
+Tenho interesse em saber mais sobre os produtos que vocês oferecem.
+Poderia me passar mais informações?`;
 
     const url = `https://wa.me/5585999063736?text=${encodeURIComponent(texto)}`;
     return url;

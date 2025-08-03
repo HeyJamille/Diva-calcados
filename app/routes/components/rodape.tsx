@@ -5,10 +5,10 @@ export default function Rodape() {
   // message
   const mensagem = useMemo(() => {
     const mensagem = `
-      Olá! 👋
-      
-      Tenho interesse em saber mais sobre os produtos que vocês oferecem. 
-      Poderia me passar mais informações?`;
+Olá! 👋
+
+Tenho interesse em saber mais sobre os produtos que vocês oferecem. 
+Poderia me passar mais informações?`;
 
     const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
       mensagem
