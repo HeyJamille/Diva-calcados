@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+
+// contexts
 import { useCart } from "../../context/cartContext"; // ajuste o path se necessário
 
 export default function Menu() {
@@ -6,6 +8,22 @@ export default function Menu() {
   const [isOpenCart, setIsOpenCart] = useState(false); // menu lateral do carrinho
 
   const { cart } = useCart();
+
+  // message
+  const message = useMemo(() => {
+    if (cart.length === 0) return "";
+
+    const textoProdutos = cart
+      .map((item, index) => `${index + 1}. ${item.nome} - ${item.preco}`)
+      .join("\n");
+
+    const mensagem = `Olá! Quero comprar os seguintes produtos:\n\n${textoProdutos}`;
+    const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
+      mensagem
+    )}`;
+
+    return url;
+  }, [cart]);
 
   return (
     <header className="relative">
@@ -15,17 +33,29 @@ export default function Menu() {
 
         {/* Menu Desktop */}
         <nav className="hidden md:flex gap-10">
-          <a href="/" className="text-lg">Home</a>
-          <a href="/produtos/lingeries" className="text-lg">Lingeries</a>
-          <a href="/produtos/roupas-bebe" className="text-lg">Roupas de Bebê</a>
-          <a href="/produtos/sandalias" className="text-lg">Sandálias</a>
-          <a href="/produtos/bolsas" className="text-lg">Bolsas</a>
+          <a href="/" className="text-lg">
+            Home
+          </a>
+          <a href="/produtos/lingeries" className="text-lg">
+            Lingeries
+          </a>
+          <a href="/produtos/roupas-bebe" className="text-lg">
+            Roupas de Bebê
+          </a>
+          <a href="/produtos/sandalias" className="text-lg">
+            Sandálias
+          </a>
+          <a href="/produtos/bolsas" className="text-lg">
+            Bolsas
+          </a>
         </nav>
 
         {/* Icons Desktop */}
-        <div className="hidden md:flex gap-5 items-center">
-          <img className="h-6 w-6 cursor-pointer" src="/icons/heart.svg" alt="Favoritos" />
-          <div className="relative cursor-pointer" onClick={() => setIsOpenCart(true)}>
+        <section className="hidden md:flex gap-5 items-center">
+          <div
+            className="relative cursor-pointer"
+            onClick={() => setIsOpenCart(true)}
+          >
             <img className="h-6 w-6" src="/icons/bag.svg" alt="Carrinho" />
             {cart.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
@@ -33,7 +63,7 @@ export default function Menu() {
               </span>
             )}
           </div>
-        </div>
+        </section>
 
         {/* Hamburger Menu Button Mobile */}
         <button
@@ -78,16 +108,44 @@ export default function Menu() {
         </div>
 
         <nav className="flex flex-col p-4 gap-5">
-          <a href="/" className="text-lg" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="/produtos/lingeries" className="text-lg" onClick={() => setIsOpen(false)}>Lingeries</a>
-          <a href="/produtos/roupas-bebe" className="text-lg" onClick={() => setIsOpen(false)}>Roupas de Bebê</a>
-          <a href="/produtos/sandalias" className="text-lg" onClick={() => setIsOpen(false)}>Sandálias</a>
-          <a href="/produtos/bolsas" className="text-lg" onClick={() => setIsOpen(false)}>Bolsas</a>
+          <a href="/" className="text-lg" onClick={() => setIsOpen(false)}>
+            Home
+          </a>
+          <a
+            href="/produtos/lingeries"
+            className="text-lg"
+            onClick={() => setIsOpen(false)}
+          >
+            Lingeries
+          </a>
+          <a
+            href="/produtos/roupas-bebe"
+            className="text-lg"
+            onClick={() => setIsOpen(false)}
+          >
+            Roupas de Bebê
+          </a>
+          <a
+            href="/produtos/sandalias"
+            className="text-lg"
+            onClick={() => setIsOpen(false)}
+          >
+            Sandálias
+          </a>
+          <a
+            href="/produtos/bolsas"
+            className="text-lg"
+            onClick={() => setIsOpen(false)}
+          >
+            Bolsas
+          </a>
         </nav>
 
-        <div className="flex gap-5 items-center justify-center mt-5">
-          <img className="h-6 w-6 cursor-pointer" src="/icons/heart.svg" alt="Favoritos" />
-          <div className="relative cursor-pointer" onClick={() => setIsOpenCart(true)}>
+        <div className="flex gap-5 ml-5 mt-5">
+          <div
+            className="relative cursor-pointer"
+            onClick={() => setIsOpenCart(true)}
+          >
             <img className="h-6 w-6" src="/icons/bag.svg" alt="Carrinho" />
             {cart.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
@@ -107,7 +165,10 @@ export default function Menu() {
       >
         <div className="flex justify-between items-center p-5 border-b">
           <h2 className="text-xl font-semibold">Carrinho</h2>
-          <button onClick={() => setIsOpenCart(false)} aria-label="Fechar carrinho">
+          <button
+            onClick={() => setIsOpenCart(false)}
+            aria-label="Fechar carrinho"
+          >
             <img className="h-8 w-8" src="/icons/close.svg" alt="Fechar" />
           </button>
         </div>
@@ -117,17 +178,30 @@ export default function Menu() {
             <p className="text-gray-500 mt-2">Carrinho vazio</p>
           ) : (
             cart.map((item) => (
-              <div key={item.id} className="flex items-center mb-4 border-b pb-2">
-                <img
-                  src={item.imagem}
-                  alt={item.nome}
-                  className="w-16 h-16 object-cover rounded"
-                />
-                <div className="ml-4 text-left">
-                  <p className="font-semibold">{item.nome}</p>
-                  <p className="text-gray-600">{item.preco}</p>
+              <section>
+                <div
+                  key={item.id}
+                  className="flex items-center mb-4 border-b pb-2"
+                >
+                  <img
+                    src={item.imagem}
+                    alt={item.nome}
+                    className="w-16 h-16 object-cover rounded"
+                  />
+                  <div className="ml-4 text-left">
+                    <p className="font-semibold">{item.nome}</p>
+                    <p className="text-gray-600">{item.preco}</p>
+                  </div>
                 </div>
-              </div>
+                <a
+                  className="fixed bottom-5 right-5 bg-black text-white rounded-full px-6 py-3 shadow-lg cursor-pointer hover:bg-gray-800 transition"
+                  href={message}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Finalizar compras
+                </a>
+              </section>
             ))
           )}
         </div>

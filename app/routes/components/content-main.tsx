@@ -4,16 +4,17 @@ export default function ContentMain() {
       {/* Texto */}
       <section className="flex flex-col gap-8 md:w-1/2 text-center md:text-left">
         <h1 className="text-4xl md:text-5xl font-bold md:leading-tight text-gray-900">
-          Realce sua essência<br className="hidden md:block" /> com sofisticação
+          Realce sua essência
+          <br className="hidden md:block" /> com sofisticação
         </h1>
 
         <div className="space-y-5 text-base md:text-lg text-gray-700 leading-relaxed max-w-xl">
           <p>
-            Na <span className="font-semibold text-gray-900">DIVA</span>, cada detalhe é pensado para revelar o que há de mais autêntico em você — com elegância, conforto e atitude.
+            Na <span className="font-semibold text-gray-900">DIVA</span>, cada
+            detalhe é pensado para revelar o que há de mais autêntico em você —
+            com elegância, conforto e atitude.
           </p>
-          <p>
-            Vista-se de confiança. Viva sua beleza do seu jeito.
-          </p>
+          <p>Vista-se de confiança. Viva sua beleza do seu jeito.</p>
         </div>
 
         <button className="self-center md:self-start px-8 py-3 rounded-full bg-black text-white font-semibold shadow-lg hover:bg-gray-800 transition-all duration-300">
