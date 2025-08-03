@@ -7,11 +7,14 @@ import {
 } from "react";
 
 // Type
-import { type ProdutoBase } from "../routes/types/products";
+import {
+  type ProdutoBase,
+  type ProdutoCarrinho,
+} from "../routes/types/products";
 
 type CartContextType = {
-  cart: ProdutoBase[];
-  addToCart: (produto: ProdutoBase) => void;
+  cart: ProdutoCarrinho[];
+  addToCart: (produto: ProdutoCarrinho) => void;
   removeFromCart: (id: number) => void;
 };
 
@@ -19,7 +22,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   // Initializes the state by taking it from localStorage only once
-  const [cart, setCart] = useState<ProdutoBase[]>(() => {
+  const [cart, setCart] = useState<ProdutoCarrinho[]>(() => {
     if (typeof window !== "undefined") {
       const savedCart = localStorage.getItem("cart");
       return savedCart ? JSON.parse(savedCart) : [];
@@ -36,7 +39,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [cart]);
 
-  const addToCart = (produto: ProdutoBase) => {
+  const addToCart = (produto: ProdutoCarrinho) => {
     setCart((prev) => [...prev, produto]);
   };
 
