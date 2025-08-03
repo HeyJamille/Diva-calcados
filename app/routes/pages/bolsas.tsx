@@ -3,29 +3,50 @@ import { FaShoppingCart, FaWhatsapp } from "react-icons/fa";
 import Menu from "../components/menu";
 import { bolsas } from "../data/bolsas";
 import type { Bolsas } from "../types/products";
-
 // Contexts
 import { useCart } from "../../context/cartContext";
 
 export default function BolsasPages() {
   const [selectedItem, setSelectedItem] = useState<Bolsas | null>(null);
+  const [corSelecionada, setCorSelecionada] = useState<string | null>(null);
+  const [tamanhoSelecionado, setTamanhoSelecionado] = useState<string | null>(
+    null
+  );
 
   const closeModal = () => setSelectedItem(null);
 
   const { addToCart } = useCart();
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredBolsas = bolsas.filter((bolsa) =>
+    bolsa.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const handleAddToCart = () => {
-    if (selectedItem) {
-      addToCart(selectedItem);
-      closeModal();
+    if (!corSelecionada || !tamanhoSelecionado) {
+      alert("Selecione uma cor e um tamanho antes de adicionar ao carrinho.");
+      return;
     }
+
+    addToCart({
+      ...selectedItem!,
+      corSelecionada,
+      tamanhoSelecionado,
+    });
+
+    // Limpa seleção
+    setCorSelecionada("");
+    setTamanhoSelecionado("");
+
+    closeModal();
   };
 
   return (
     <article>
       <Menu />
 
-      <section className="bg-white text-gray-800 min-h-screen px-6 py-10 md:px-10">
+      <section className="bg-white text-gray-800 min-h-screen px-6 py-10 md:px-10 mt-20">
         {/* Cabeçalho */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
           <h2 className="text-4xl font-bold text-black mb-4 md:mb-0">Bolsas</h2>
@@ -33,31 +54,36 @@ export default function BolsasPages() {
             className="p-2 bg-gray-200 text-md text-black w-full md:w-60 rounded-lg"
             type="text"
             placeholder="Pesquise aqui..."
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
 
         {/* Lista de produtos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {bolsas.map((product: Bolsas) => (
-            <div
-              key={product.id}
-              onClick={() => setSelectedItem(product)}
-              className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform duration-200 ease-in-out cursor-pointer"
-              title={`Ver detalhes de ${product.nome}`}
-            >
-              <img
-                src={product.imagem}
-                alt={product.nome}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h4 className="text-lg font-semibold text-black truncate">
-                  {product.nome}
-                </h4>
-                <p className="text-gray-700">{product.preco}</p>
+          {filteredBolsas.length > 0 ? (
+            filteredBolsas.map((product) => (
+              <div
+                key={product.id}
+                onClick={() => setSelectedItem(product)}
+                className="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform duration-200 ease-in-out cursor-pointer"
+                title={`Ver detalhes de ${product.nome}`}
+              >
+                <img
+                  src={product.imagemUrl}
+                  alt={product.nome}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <h4 className="text-lg font-semibold text-black truncate">
+                    {product.nome}
+                  </h4>
+                  <p className="text-gray-700">{product.preco}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>Nenhum item encontrado.</p>
+          )}
         </div>
 
         {/* Modal */}
@@ -82,28 +108,42 @@ export default function BolsasPages() {
                   </p>
                   <div className="flex flex-wrap gap-2 mt-1">
                     {selectedItem.cores.map((cor, index) => (
-                      <span
+                      <button
                         key={index}
-                        className="bg-gray-200 px-3 py-1 rounded-full text-sm"
+                        type="button"
+                        onClick={() => setCorSelecionada(cor)}
+                        className={`px-3 py-1 rounded-full text-sm border transition-all
+                        ${
+                          corSelecionada === cor
+                            ? "bg-blue-500 text-white border-blue-500"
+                            : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                        }`}
                       >
                         {cor}
-                      </span>
+                      </button>
                     ))}
                   </div>
                 </div>
 
-                <div>
+                <div className="mb-3">
                   <p className="font-semibold text-gray-800">
                     Tamanhos disponíveis:
                   </p>
                   <div className="flex flex-wrap gap-2 mt-1">
-                    {selectedItem.tamanhos.map((tamanho, index) => (
-                      <span
+                    {selectedItem.tamanhos.map((tamanhos, index) => (
+                      <button
                         key={index}
-                        className="bg-gray-200 px-3 py-1 rounded-full text-sm"
+                        type="button"
+                        onClick={() => setTamanhoSelecionado(tamanhos)}
+                        className={`px-3 py-1 rounded-full text-sm border transition-all
+                        ${
+                          tamanhoSelecionado === tamanhos
+                            ? "bg-blue-500 text-white border-blue-500"
+                            : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                        }`}
                       >
-                        {tamanho}
-                      </span>
+                        {tamanhos}
+                      </button>
                     ))}
                   </div>
                 </div>

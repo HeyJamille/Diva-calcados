@@ -2,13 +2,14 @@ import { useMemo, useState } from "react";
 
 // contexts
 import { useCart } from "../../context/cartContext"; // ajuste o path se necessário
+import { FiTrash } from "react-icons/fi";
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false); // menu lateral principal
   const [isOpenCart, setIsOpenCart] = useState(false); // menu lateral do carrinho
 
   const { cart } = useCart();
-
+  const { removeFromCart } = useCart(); // importe do contexto
   // message
   const message = useMemo(() => {
     if (cart.length === 0) return "";
@@ -17,7 +18,11 @@ export default function Menu() {
       .map((item, index) => `${index + 1}. ${item.nome} - ${item.preco}`)
       .join("\n");
 
-    const mensagem = `Olá! Quero comprar os seguintes produtos:\n\n${textoProdutos}`;
+    const mensagem = `Olá! 👋
+      Tenho interesse nos seguintes produtos:
+      ${textoProdutos}
+      Poderia me passar mais informações? Obrigado!`;
+
     const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
       mensagem
     )}`;
@@ -25,8 +30,12 @@ export default function Menu() {
     return url;
   }, [cart]);
 
+  const handleTrash = (id: number) => {
+    removeFromCart(id);
+  };
+
   return (
-    <header className="relative">
+    <header className="fixed top-0 left-0 w-full h-20 z-50">
       {/* Barra superior */}
       <aside className="flex justify-between items-center p-5 md:px-10 bg-white shadow-md">
         <h1 className="text-2xl font-semibold">DIVA</h1>
@@ -65,14 +74,27 @@ export default function Menu() {
           </div>
         </section>
 
-        {/* Hamburger Menu Button Mobile */}
-        <button
-          onClick={() => setIsOpen(true)}
-          className="md:hidden"
-          aria-label="Abrir menu"
-        >
-          <img className="h-8 w-8" src="/icons/menu.svg" alt="Abrir menu" />
-        </button>
+        {/* Carrinho e Hamburguer Menu Mobile */}
+        <section className="flex flex-row items-center justify-center gap-5 md:hidden">
+          <div className="flex gap-5">
+            <div
+              className="relative cursor-pointer"
+              onClick={() => setIsOpenCart(true)}
+            >
+              <img className="h-6 w-6" src="/icons/bag.svg" alt="Carrinho" />
+              {cart.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                  {cart.length}
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Hamburger Menu Button Mobile */}
+          <button onClick={() => setIsOpen(true)} aria-label="Abrir menu">
+            <img className="h-8 w-8" src="/icons/menu.svg" alt="Abrir menu" />
+          </button>
+        </section>
       </aside>
 
       {/* Overlay Menu Principal */}
@@ -140,20 +162,6 @@ export default function Menu() {
             Bolsas
           </a>
         </nav>
-
-        <div className="flex gap-5 ml-5 mt-5">
-          <div
-            className="relative cursor-pointer"
-            onClick={() => setIsOpenCart(true)}
-          >
-            <img className="h-6 w-6" src="/icons/bag.svg" alt="Carrinho" />
-            {cart.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-                {cart.length}
-              </span>
-            )}
-          </div>
-        </div>
       </div>
 
       {/* Menu lateral carrinho */}
@@ -173,36 +181,46 @@ export default function Menu() {
           </button>
         </div>
 
-        <div className="p-4">
-          {cart.length === 0 ? (
-            <p className="text-gray-500 mt-2">Carrinho vazio</p>
-          ) : (
-            cart.map((item) => (
-              <section>
+        <div className="flex flex-col justify-between h-145 p-4">
+          <div className="overflow-y-auto">
+            {cart.length === 0 ? (
+              <p className="text-gray-500 mt-2">Carrinho vazio</p>
+            ) : (
+              cart.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center mb-4 border-b pb-2"
+                  className="flex items-center justify-around mb-4 border-b pb-2"
                 >
                   <img
                     src={item.imagem}
                     alt={item.nome}
                     className="w-16 h-16 object-cover rounded"
                   />
-                  <div className="ml-4 text-left">
+                  <div>
                     <p className="font-semibold">{item.nome}</p>
-                    <p className="text-gray-600">{item.preco}</p>
+                    <p className="text-gray-600">Cor: {item.corSelecionada}</p>
+                    <p className="text-gray-600">
+                      Tamanho: {item.tamanhoSelecionado}
+                    </p>
                   </div>
+                  <FiTrash
+                    className="text-xl"
+                    onClick={() => handleTrash(item.id)}
+                  />
                 </div>
-                <a
-                  className="fixed bottom-5 right-5 bg-black text-white rounded-full px-6 py-3 shadow-lg cursor-pointer hover:bg-gray-800 transition"
-                  href={message}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Finalizar compras
-                </a>
-              </section>
-            ))
+              ))
+            )}
+          </div>
+
+          {cart.length > 0 && (
+            <a
+              className="mt-4 w-50 self-center bg-black text-white rounded-full px-6 py-3 shadow-lg hover:bg-gray-800 transition text-center"
+              href={message}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Finalizar compras
+            </a>
           )}
         </div>
       </div>

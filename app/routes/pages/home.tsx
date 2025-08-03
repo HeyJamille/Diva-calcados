@@ -9,8 +9,12 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
   // message
-  const mensagen = useMemo(() => {
-    const mensagem = "Olá! Quero mais informações sobre os seus produtos.";
+  const mensagem = useMemo(() => {
+    const mensagem = `
+    Olá! 👋
+    Tenho interesse em saber mais sobre os produtos que vocês oferecem. 
+    Poderia me passar mais informações? Obrigado!`;
+
     const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
       mensagem
     )}`;
@@ -20,19 +24,21 @@ export default function Home() {
   return (
     <article>
       <Menu />
-      <ContentMain />
-      <About />
-      <Sale />
-      <Contact />
+      <section className="mt-20">
+        <ContentMain />
+        <About />
+        <Sale />
+        <Contact />
 
-      <a
-        className="fixed bottom-5 right-5 bg-green-500 rounded-full p-3 shadow-lg cursor-pointer hover:bg-green-600 transition"
-        href={mensagen}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FaWhatsapp className="h-8 w-8 text-white" />
-      </a>
+        <a
+          className="fixed bottom-5 right-5 bg-green-500 rounded-full p-3 shadow-lg cursor-pointer hover:bg-green-600 transition"
+          href={mensagem}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaWhatsapp className="h-8 w-8 text-white" />
+        </a>
+      </section>
     </article>
   );
 }

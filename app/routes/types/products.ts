@@ -6,6 +6,8 @@ export interface ProdutoBase {
   preco: string;
   cores: string[];
   tamanhos: string[];
+  corSelecionada?: string;
+  tamanhoSelecionado?: string;
 }
 
 // Tipos específicos para cada categoria de produto (apenas alias)

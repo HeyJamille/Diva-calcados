@@ -111,16 +111,32 @@ const Produtos = {
 
 export default function Sale() {
   const [selectedItem, setSelectedItem] = useState<Produto | null>(null);
+  const [corSelecionada, setCorSelecionada] = useState<string | null>(null);
+  const [tamanhoSelecionado, setTamanhoSelecionado] = useState<string | null>(
+    null
+  );
 
   const closeModal = () => setSelectedItem(null);
 
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    if (selectedItem) {
-      addToCart(selectedItem);
-      closeModal();
+    if (!corSelecionada || !tamanhoSelecionado) {
+      alert("Selecione uma cor e um tamanho antes de adicionar ao carrinho.");
+      return;
     }
+
+    addToCart({
+      ...selectedItem!,
+      corSelecionada,
+      tamanhoSelecionado,
+    });
+
+    // Limpa seleção
+    setCorSelecionada("");
+    setTamanhoSelecionado("");
+
+    closeModal();
   };
 
   return (
@@ -159,7 +175,7 @@ export default function Sale() {
 
       {/* Modal */}
       {selectedItem && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 overflow-y-auto p-4">
+        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-50 overflow-y-auto p-4">
           <div className="flex flex-col md:flex-row items-center justify-center bg-white rounded-lg shadow-lg p-6 w-[700px] relative gap-6">
             <img
               src={selectedItem.imagem}
@@ -180,29 +196,43 @@ export default function Sale() {
                   Cores disponíveis:
                 </p>
                 <div className="flex flex-wrap gap-2 mt-1">
-                  {selectedItem.cores.map((cor, id) => (
-                    <span
-                      key={id}
-                      className="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-800"
+                  {selectedItem.cores.map((cor, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setCorSelecionada(cor)}
+                      className={`px-3 py-1 rounded-full text-sm border transition-all
+                        ${
+                          corSelecionada === cor
+                            ? "bg-blue-500 text-white border-blue-500"
+                            : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                        }`}
                     >
                       {cor}
-                    </span>
+                    </button>
                   ))}
                 </div>
               </div>
 
-              <div>
+              <div className="mb-3">
                 <p className="font-semibold text-gray-800">
                   Tamanhos disponíveis:
                 </p>
                 <div className="flex flex-wrap gap-2 mt-1">
-                  {selectedItem.tamanhos.map((tamanho, id) => (
-                    <span
-                      key={id}
-                      className="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-800"
+                  {selectedItem.tamanhos.map((tamanhos, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setTamanhoSelecionado(tamanhos)}
+                      className={`px-3 py-1 rounded-full text-sm border transition-all
+                        ${
+                          tamanhoSelecionado === tamanhos
+                            ? "bg-blue-500 text-white border-blue-500"
+                            : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                        }`}
                     >
-                      {tamanho}
-                    </span>
+                      {tamanhos}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -279,29 +309,43 @@ export default function Sale() {
                   Cores disponíveis:
                 </p>
                 <div className="flex flex-wrap gap-2 mt-1">
-                  {selectedItem.cores.map((cor, id) => (
-                    <span
-                      key={id}
-                      className="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-800"
+                  {selectedItem.cores.map((cor, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setCorSelecionada(cor)}
+                      className={`px-3 py-1 rounded-full text-sm border transition-all
+                        ${
+                          corSelecionada === cor
+                            ? "bg-blue-500 text-white border-blue-500"
+                            : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                        }`}
                     >
                       {cor}
-                    </span>
+                    </button>
                   ))}
                 </div>
               </div>
 
-              <div>
+              <div className="mb-3">
                 <p className="font-semibold text-gray-800">
                   Tamanhos disponíveis:
                 </p>
                 <div className="flex flex-wrap gap-2 mt-1">
-                  {selectedItem.tamanhos.map((tamanho, id) => (
-                    <span
-                      key={id}
-                      className="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-800"
+                  {selectedItem.tamanhos.map((tamanhos, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setTamanhoSelecionado(tamanhos)}
+                      className={`px-3 py-1 rounded-full text-sm border transition-all
+                        ${
+                          tamanhoSelecionado === tamanhos
+                            ? "bg-blue-500 text-white border-blue-500"
+                            : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
+                        }`}
                     >
-                      {tamanho}
-                    </span>
+                      {tamanhos}
+                    </button>
                   ))}
                 </div>
               </div>
