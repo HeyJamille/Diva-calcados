@@ -112,7 +112,6 @@ export default function Menu() {
       <SideMenu isOpen={isOpen} setIsOpen={setIsOpen} />
 
       {/* Menu lateral carrinho */}
-      {/* Menu lateral carrinho */}
       <div
         className={`fixed top-0 right-0 h-full w-64 md:w-90 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
           isOpenCart ? "translate-x-0" : "translate-x-full"

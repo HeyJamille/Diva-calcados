@@ -1,10 +1,15 @@
-import type { ProdutoBase } from "../types/products";
+import type { ProdutoCarrinho } from "../types/products";
 
-export function generateWhatsAppMessage(cart: ProdutoBase[]): string {
+export function generateWhatsAppMessage(cart: ProdutoCarrinho[]): string {
   if (cart.length === 0) return "";
 
   const textoProdutos = cart
-    .map((item, index) => `${index + 1}. ${item.nome} - ${item.preco}`)
+    .map(
+      (item, index) =>
+        `${index + 1}. ${item.nome} - ${item.corSelecionada} - ${
+          item.tamanhoSelecionado
+        }`
+    )
     .join("\n");
 
   const mensagem = `Olá! 👋

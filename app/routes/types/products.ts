@@ -7,10 +7,10 @@ export interface ProdutoBase {
   tamanhos: string[];
 }
 
-export type ProdutoCarrinho = ProdutoBase & {
+export interface ProdutoCarrinho extends ProdutoBase {
   corSelecionada: string;
   tamanhoSelecionado: string;
-};
+}
 
 // Specific types for each product category
 export type Sandalias = ProdutoBase;
