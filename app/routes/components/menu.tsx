@@ -136,7 +136,7 @@ export default function Menu() {
               cart.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center justify-around mb-4 border-b pb-2"
+                  className="flex items-center justify-around gap-1 mb-4 border-b pb-2"
                 >
                   <img
                     src={item.imagemUrl}
