@@ -16,11 +16,17 @@ export const ModalProduto: React.FC<ModalProdutoProps> = ({
 }) => {
   if (!selectedItem) return null;
 
+  // find the selected color in the object
+  const corAtual = selectedItem.cores.find((c) => c.nome === corSelecionada);
+
+  // use the selected color image, if it exists, or do not use a default one
+  const imagemProduto = corAtual?.imagemUrl || selectedItem.imagemUrl;
+
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 overflow-y-auto p-4">
       <div className="flex flex-col md:flex-row items-center justify-center bg-white rounded-lg shadow-lg p-6 w-[700px] relative gap-6">
         <img
-          src={selectedItem.imagemUrl}
+          src={imagemProduto}
           alt={selectedItem.nome}
           className="w-[200px] md:w-1/2 h-full object-cover rounded"
         />
@@ -40,14 +46,14 @@ export const ModalProduto: React.FC<ModalProdutoProps> = ({
                 <button
                   key={index}
                   type="button"
-                  onClick={() => setCorSelecionada(cor)}
+                  onClick={() => setCorSelecionada(cor.nome)}
                   className={`px-3 py-1 rounded-full text-sm border transition-all ${
-                    corSelecionada === cor
+                    corSelecionada === cor.nome
                       ? "bg-blue-500 text-white border-blue-500"
                       : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300"
                   }`}
                 >
-                  {cor}
+                  {cor.nome}
                 </button>
               ))}
             </div>

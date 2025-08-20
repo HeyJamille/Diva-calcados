@@ -3,7 +3,7 @@ export interface ProdutoBase {
   nome: string;
   imagemUrl: string;
   preco: string;
-  cores: string[];
+  cores: { nome: string; imagemUrl: string }[]; // each color has an image
   tamanhos: string[];
 }
 
