@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaPhone } from "react-icons/fa";
 
 export default function Rodape() {
   // message
@@ -10,7 +10,7 @@ Olá! 👋
 Tenho interesse em saber mais sobre os produtos que vocês oferecem. 
 Poderia me passar mais informações?`;
 
-    const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
+    const url = `https://wa.me/5585985595993?text=${encodeURIComponent(
       mensagem
     )}`;
     return url;
@@ -31,6 +31,16 @@ Poderia me passar mais informações?`;
         </p>
 
         <div className="flex flex-row justify-center gap-6">
+          {/* Botão Telefone */}
+          <a
+            href="tel:+5585991676691"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-700 hover:brightness-110 text-white p-3 rounded-full font-2xl transition text-lg"
+          >
+            <FaPhone />
+          </a>
+
           {/* Botão WhatsApp */}
           <a
             href={mensagem} // Substitua pelo seu número
@@ -43,7 +53,7 @@ Poderia me passar mais informações?`;
 
           {/* Botão Instagram */}
           <a
-            href="https://www.instagram.com/luxemoda" // Substitua pela sua @
+            href="https://www.instagram.com/antoniiacarmo"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 flex items-center justify-center gap-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:brightness-110 text-white p-3 rounded-full font-2xl transition text-lg"
@@ -54,8 +64,8 @@ Poderia me passar mais informações?`;
 
         {/* Endereço ou informação extra (opcional) */}
         <div className="mt-16 text-gray-400 text-sm">
-          <p>Rua Exemplo, 123 – Fortaleza - CE</p>
-          <p className="mt-1">E-mail: contato@luxemoda.com</p>
+          <p className="mt-1">E-mail: antoniiacarmo@gmail.com</p>
+          <p>Fortaleza - CE</p>
         </div>
       </div>
     </section>

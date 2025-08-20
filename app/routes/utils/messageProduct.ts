@@ -19,7 +19,7 @@ ${textoProdutos}
 
 Poderia me passar mais informações?`;
 
-  const url = `https://wa.me/5585999063736?text=${encodeURIComponent(
+  const url = `https://wa.me/5585985595993?text=${encodeURIComponent(
     mensagem
   )}`;
 
