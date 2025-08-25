@@ -1,81 +1,283 @@
 import { type Lingeries } from "../types/products";
 
-export const lingeries: Lingeries[] = [
+export const maio: Lingeries[] = [
   {
     id: 1,
-    nome: "Calcinha Alta",
+    nome: "Maiô Saída",
     preco: "Negociável",
-    imagemUrl: "/products/lingeries/calcinha_alta_roxo.jpeg",
+    imagemUrl: "/products/lingeries/maio_saida.jpeg",
     cores: [
       {
-        nome: "Roxo",
+        nome: "Padrão",
         imagemUrl: "",
       },
     ],
-    tamanhos: ["34", "35", "36", "37"],
+    tamanhos: ["P", "M", "G"],
   },
   {
     id: 2,
-    nome: "Calcinha Modeladora com Renda",
+    nome: "Maiô c/bojo com decote em V",
     preco: "Negociável",
-    imagemUrl: "/products/lingeries/calcinha_modeladora_com_renda_nude.jpeg",
+    imagemUrl: "/products/lingeries/maio_com_bojo_com_decote_em_V.jpeg",
     cores: [
       {
-        nome: "Nude",
+        nome: "Padrão",
         imagemUrl: "",
       },
     ],
-    tamanhos: ["34", "35", "36", "37"],
+    tamanhos: ["P", "M", "G"],
   },
   {
     id: 3,
-    nome: "Calcinha Alta Cintura Modeladora",
+    nome: "Maiô c/bojo com alça no pescoço",
     preco: "Negociável",
-    imagemUrl: "/products/lingeries/calcinha_alta_cintura_modeladora_rosa.jpeg",
+    imagemUrl: "/products/lingeries/maio_com_bojo_com_alca_no_pescoco.jpeg",
     cores: [
       {
-        nome: "Rosa",
+        nome: "Padrão",
         imagemUrl: "",
       },
     ],
-    tamanhos: ["34", "35", "36", "37"],
+    tamanhos: ["P", "M", "G"],
   },
   {
     id: 4,
-    nome: "Calcinha Alta Modeladora",
+    nome: "Maiô Body",
     preco: "Negociável",
-    imagemUrl: "/products/lingeries/calcinha_alta_modeladora_amarelo.jpeg",
+    imagemUrl: "/products/lingeries/maio_body.jpeg",
     cores: [
       {
-        nome: "Amarelo",
+        nome: "Padrão",
         imagemUrl: "",
       },
     ],
-    tamanhos: ["34", "35", "36", "37"],
+    tamanhos: ["P", "M", "G"],
   },
   {
     id: 5,
-    nome: "Sutiã",
+    nome: "Maiô de tirinha c/bojo",
     preco: "Negociável",
-    imagemUrl: "/products/lingeries/sutia.jpeg",
+    imagemUrl: "/products/lingeries/maio_de_tirinha_com_bojo.jpeg",
     cores: [
       {
-        nome: "Nude",
-        imagemUrl: "",
-      },
-      {
-        nome: "Preto",
-        imagemUrl: "",
-      },
-      {
-        nome: "Roxo",
-        imagemUrl: "",
-      },
-      {
-        nome: "Branco",
+        nome: "Padrão",
         imagemUrl: "",
       },
     ],
-    tamanhos: ["34", "35", "36", "37"],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 6,
+    nome: "Maiô de tirinha c/bojo FIO",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/maio_de_tirinha_com_bojo_fio.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 7,
+    nome: "Maiô c/ acessório",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/maio_com_acessorio.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+];
+
+export const biquini: Lingeries[] = [
+  {
+    id: 8,
+    nome: "Biquíni meia taça",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/biquini_meia_taca.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 9,
+    nome: "Biquíni",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/biquini.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 10,
+    nome: "Biquíni cortininha calcinha asa",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/biquini_cortininha_calcinha_asa.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 11,
+    nome: "Biquíni cortininha fixo",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/biquini_cortininha_fixo.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 12,
+    nome: "Biquíni 02",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/biquini02.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 13,
+    nome: "Biquíni c/ acessório U",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/biquini_com_acessorio_em_U.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 14,
+    nome: "Biquíni 03U",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/biquini03.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 15,
+    nome: "Biquíni acessório",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/biquini_acessorio.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 16,
+    nome: "Pareô",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/pareo.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+];
+
+export const saida: Lingeries[] = [
+  {
+    id: 17,
+    nome: "Short Uv",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/short_Uv.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 18,
+    nome: "Saída de Praia",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/saida_de_praia.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 19,
+    nome: "Pareô",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/pareo.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 20,
+    nome: "Saída de Praia02",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/saida_de_praia02.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 21,
+    nome: "Blusão Uv",
+    preco: "Negociável",
+    imagemUrl: "/products/lingeries/blusao_Uv.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
   },
 ];

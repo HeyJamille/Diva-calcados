@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // Icons
 import { FaWhatsapp } from "react-icons/fa";
@@ -14,13 +14,13 @@ import Rodape from "../components/rodape";
 import { useCart } from "../../context/cartContext";
 
 // Data
-import { lingeries } from "../data/lingeries";
+import { maio, biquini, saida } from "../data/lingeries";
 
 // Types
 import type { Lingeries } from "../types/products";
 
 export default function LingeriesPages() {
-  // UseState
+  // Estados
   const [selectedItem, setSelectedItem] = useState<Lingeries | null>(null);
   const [corSelecionada, setCorSelecionada] = useState<string>("");
   const [tamanhoSelecionado, setTamanhoSelecionado] = useState<string>("");
@@ -29,54 +29,70 @@ export default function LingeriesPages() {
   // Modal
   const closeModal = () => setSelectedItem(null);
 
-  // Context
+  // Contexto
   const { addToCart } = useCart();
 
-  // Filter
-  const filteredLingeries = lingeries.filter((lingerie) =>
-    lingerie.nome.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Lista de categorias (fica mais fácil de expandir depois)
+  const categorias = [
+    { title: "Maiôs", produtos: maio },
+    { title: "Biquínis", produtos: biquini },
+    { title: "Saídas", produtos: saida },
+  ];
 
   return (
     <article>
       <Menu />
 
       <section className="bg-white text-gray-800 min-h-screen px-6 py-10 md:px-10 mt-20">
-        {/* Header */}
+        {/* Header principal */}
         <Cabecalho
-          title="Lingeries"
+          title="Roupas de Banho"
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />
 
-        {/* Products List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {filteredLingeries.length > 0 ? (
-            filteredLingeries.map((product) => (
-              <ProdutoCard
-                key={product.id}
-                produto={product}
-                onClick={() => setSelectedItem(product)}
-              />
-            ))
-          ) : (
-            <p>Nenhum item encontrado.</p>
-          )}
-        </div>
+        {/* Loop nas categorias */}
+        {categorias.map((categoria) => {
+          const filtered = categoria.produtos.filter((produto) =>
+            produto.nome.toLowerCase().includes(searchTerm.toLowerCase())
+          );
 
-        {/* Modal */}
-        {selectedItem && (
-          <ModalProduto
-            selectedItem={selectedItem}
-            corSelecionada={corSelecionada}
-            tamanhoSelecionado={tamanhoSelecionado}
-            closeModal={closeModal}
-            addToCart={addToCart}
-            setCorSelecionada={setCorSelecionada}
-            setTamanhoSelecionado={setTamanhoSelecionado}
-          />
-        )}
+          return (
+            <div key={categoria.title} className="mb-16">
+              <h2 className="text-3xl font-bold text-black mb-6">
+                {categoria.title}
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {filtered.length > 0 ? (
+                  filtered.map((product) => (
+                    <ProdutoCard
+                      key={product.id}
+                      produto={product}
+                      onClick={() => setSelectedItem(product)}
+                    />
+                  ))
+                ) : (
+                  <p>Nenhum item encontrado.</p>
+                )}
+              </div>
+            </div>
+          );
+        })}
       </section>
+
+      {/* Modal único */}
+      {selectedItem && (
+        <ModalProduto
+          selectedItem={selectedItem}
+          corSelecionada={corSelecionada}
+          tamanhoSelecionado={tamanhoSelecionado}
+          closeModal={closeModal}
+          addToCart={addToCart}
+          setCorSelecionada={setCorSelecionada}
+          setTamanhoSelecionado={setTamanhoSelecionado}
+        />
+      )}
 
       {/* WhatsApp */}
       <a
