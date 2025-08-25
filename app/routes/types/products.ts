@@ -14,7 +14,7 @@ export interface ProdutoCarrinho extends ProdutoBase {
 
 // Specific types for each product category
 export type Sandalias = ProdutoBase;
-export type Lingeries = ProdutoBase;
+export type RoupasBanho = ProdutoBase;
 export type RoupasBebe = ProdutoBase;
 export type Bolsas = ProdutoBase;
 export type ProductSale = ProdutoBase;

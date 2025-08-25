@@ -38,7 +38,7 @@ export default function Menu() {
           <a href="/" className="text-lg">
             Home
           </a>
-          <a href="/produtos/lingeries" className="text-lg">
+          <a href="/produtos/roupas-banho" className="text-lg">
             Roupas de Banho
           </a>
           <a href="/produtos/roupas-bebe" className="text-lg">

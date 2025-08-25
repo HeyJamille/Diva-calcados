@@ -14,7 +14,7 @@ import Rodape from "../components/rodape";
 import { useCart } from "../../context/cartContext";
 
 // Data
-import { maio, biquini, saida } from "../data/lingeries";
+import { maio, biquini, saida, masculino } from "../data/lingeries";
 
 // Types
 import type { Lingeries } from "../types/products";
@@ -37,6 +37,7 @@ export default function LingeriesPages() {
     { title: "Maiôs", produtos: maio },
     { title: "Biquínis", produtos: biquini },
     { title: "Saídas", produtos: saida },
+    { title: "Masculino", produtos: masculino },
   ];
 
   return (

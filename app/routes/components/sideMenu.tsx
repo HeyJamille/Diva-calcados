@@ -23,7 +23,7 @@ export const SideMenu = ({ isOpen, setIsOpen }: SideMenuProps) => {
           Home
         </a>
         <a
-          href="/produtos/lingeries"
+          href="/produtos/roupas-banho"
           className="text-lg"
           onClick={() => setIsOpen(false)}
         >

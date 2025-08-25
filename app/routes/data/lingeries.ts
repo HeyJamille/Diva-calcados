@@ -1,10 +1,10 @@
-import { type Lingeries } from "../types/products";
+import { type RoupasBanho } from "../types/products";
 
-export const maio: Lingeries[] = [
+export const maio: RoupasBanho[] = [
   {
     id: 1,
     nome: "Maiô Saída",
-    preco: "Negociável",
+    preco: "R$ 158,00",
     imagemUrl: "/products/lingeries/maio_saida.jpeg",
     cores: [
       {
@@ -17,7 +17,7 @@ export const maio: Lingeries[] = [
   {
     id: 2,
     nome: "Maiô c/bojo com decote em V",
-    preco: "Negociável",
+    preco: "R$ 98,00",
     imagemUrl: "/products/lingeries/maio_com_bojo_com_decote_em_V.jpeg",
     cores: [
       {
@@ -30,7 +30,7 @@ export const maio: Lingeries[] = [
   {
     id: 3,
     nome: "Maiô c/bojo com alça no pescoço",
-    preco: "Negociável",
+    preco: "R$ 110,00",
     imagemUrl: "/products/lingeries/maio_com_bojo_com_alca_no_pescoco.jpeg",
     cores: [
       {
@@ -43,7 +43,7 @@ export const maio: Lingeries[] = [
   {
     id: 4,
     nome: "Maiô Body",
-    preco: "Negociável",
+    preco: "R$ 98,00",
     imagemUrl: "/products/lingeries/maio_body.jpeg",
     cores: [
       {
@@ -56,7 +56,7 @@ export const maio: Lingeries[] = [
   {
     id: 5,
     nome: "Maiô de tirinha c/bojo",
-    preco: "Negociável",
+    preco: "R$ 98,00",
     imagemUrl: "/products/lingeries/maio_de_tirinha_com_bojo.jpeg",
     cores: [
       {
@@ -69,7 +69,7 @@ export const maio: Lingeries[] = [
   {
     id: 6,
     nome: "Maiô de tirinha c/bojo FIO",
-    preco: "Negociável",
+    preco: "R$ 98,00",
     imagemUrl: "/products/lingeries/maio_de_tirinha_com_bojo_fio.jpeg",
     cores: [
       {
@@ -82,7 +82,7 @@ export const maio: Lingeries[] = [
   {
     id: 7,
     nome: "Maiô c/ acessório",
-    preco: "Negociável",
+    preco: "R$ 98,00",
     imagemUrl: "/products/lingeries/maio_com_acessorio.jpeg",
     cores: [
       {
@@ -94,11 +94,11 @@ export const maio: Lingeries[] = [
   },
 ];
 
-export const biquini: Lingeries[] = [
+export const biquini: RoupasBanho[] = [
   {
     id: 8,
     nome: "Biquíni meia taça",
-    preco: "Negociável",
+    preco: "R$: 98,00",
     imagemUrl: "/products/lingeries/biquini_meia_taca.jpeg",
     cores: [
       {
@@ -111,7 +111,7 @@ export const biquini: Lingeries[] = [
   {
     id: 9,
     nome: "Biquíni",
-    preco: "Negociável",
+    preco: "R$: 78,00",
     imagemUrl: "/products/lingeries/biquini.jpeg",
     cores: [
       {
@@ -124,7 +124,7 @@ export const biquini: Lingeries[] = [
   {
     id: 10,
     nome: "Biquíni cortininha calcinha asa",
-    preco: "Negociável",
+    preco: "R$: 80,00",
     imagemUrl: "/products/lingeries/biquini_cortininha_calcinha_asa.jpeg",
     cores: [
       {
@@ -137,7 +137,7 @@ export const biquini: Lingeries[] = [
   {
     id: 11,
     nome: "Biquíni cortininha fixo",
-    preco: "Negociável",
+    preco: "R$: 72,00",
     imagemUrl: "/products/lingeries/biquini_cortininha_fixo.jpeg",
     cores: [
       {
@@ -150,7 +150,7 @@ export const biquini: Lingeries[] = [
   {
     id: 12,
     nome: "Biquíni 02",
-    preco: "Negociável",
+    preco: "R$: 98,00",
     imagemUrl: "/products/lingeries/biquini02.jpeg",
     cores: [
       {
@@ -163,7 +163,7 @@ export const biquini: Lingeries[] = [
   {
     id: 13,
     nome: "Biquíni c/ acessório U",
-    preco: "Negociável",
+    preco: "R$: 80,00",
     imagemUrl: "/products/lingeries/biquini_com_acessorio_em_U.jpeg",
     cores: [
       {
@@ -175,8 +175,8 @@ export const biquini: Lingeries[] = [
   },
   {
     id: 14,
-    nome: "Biquíni 03U",
-    preco: "Negociável",
+    nome: "Biquíni",
+    preco: "R$: 76,00",
     imagemUrl: "/products/lingeries/biquini03.jpeg",
     cores: [
       {
@@ -189,21 +189,8 @@ export const biquini: Lingeries[] = [
   {
     id: 15,
     nome: "Biquíni acessório",
-    preco: "Negociável",
+    preco: "R$: 78,00",
     imagemUrl: "/products/lingeries/biquini_acessorio.jpeg",
-    cores: [
-      {
-        nome: "Padrão",
-        imagemUrl: "",
-      },
-    ],
-    tamanhos: ["P", "M", "G"],
-  },
-  {
-    id: 16,
-    nome: "Pareô",
-    preco: "Negociável",
-    imagemUrl: "/products/lingeries/pareo.jpeg",
     cores: [
       {
         nome: "Padrão",
@@ -214,11 +201,24 @@ export const biquini: Lingeries[] = [
   },
 ];
 
-export const saida: Lingeries[] = [
+export const saida: RoupasBanho[] = [
+  {
+    id: 16,
+    nome: "Blusão Uv",
+    preco: "R$: 120,00",
+    imagemUrl: "/products/lingeries/blusao_Uv.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
   {
     id: 17,
     nome: "Short Uv",
-    preco: "Negociável",
+    preco: "R$: 58,00",
     imagemUrl: "/products/lingeries/short_Uv.jpeg",
     cores: [
       {
@@ -231,7 +231,7 @@ export const saida: Lingeries[] = [
   {
     id: 18,
     nome: "Saída de Praia",
-    preco: "Negociável",
+    preco: "R$: 100,00",
     imagemUrl: "/products/lingeries/saida_de_praia.jpeg",
     cores: [
       {
@@ -244,7 +244,7 @@ export const saida: Lingeries[] = [
   {
     id: 19,
     nome: "Pareô",
-    preco: "Negociável",
+    preco: "R$: 64,00",
     imagemUrl: "/products/lingeries/pareo.jpeg",
     cores: [
       {
@@ -257,7 +257,7 @@ export const saida: Lingeries[] = [
   {
     id: 20,
     nome: "Saída de Praia02",
-    preco: "Negociável",
+    preco: "R$: 88,00",
     imagemUrl: "/products/lingeries/saida_de_praia02.jpeg",
     cores: [
       {
@@ -269,9 +269,64 @@ export const saida: Lingeries[] = [
   },
   {
     id: 21,
-    nome: "Blusão Uv",
-    preco: "Negociável",
-    imagemUrl: "/products/lingeries/blusao_Uv.jpeg",
+    nome: "Short feminino",
+    preco: "R$: 64,00",
+    imagemUrl: "/products/lingeries/short_feminino.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+];
+
+export const masculino: RoupasBanho[] = [
+  {
+    id: 22,
+    nome: "Sunga",
+    preco: "R$: 40,00",
+    imagemUrl: "/products/lingeries/sunga01.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 23,
+    nome: "Short Tactel",
+    preco: "R$: 152,00",
+    imagemUrl: "/products/lingeries/short_tactel.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 24,
+    nome: "Sunga",
+    preco: "R$: 92,00",
+    imagemUrl: "/products/lingeries/sunga02.jpeg",
+    cores: [
+      {
+        nome: "Padrão",
+        imagemUrl: "",
+      },
+    ],
+    tamanhos: ["P", "M", "G"],
+  },
+  {
+    id: 25,
+    nome: "Sunga",
+    preco: "R$: 88,00",
+    imagemUrl: "/products/lingeries/sunga03.jpeg",
     cores: [
       {
         nome: "Padrão",
