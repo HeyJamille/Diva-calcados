@@ -27,7 +27,7 @@ export const SideMenu = ({ isOpen, setIsOpen }: SideMenuProps) => {
           className="text-lg"
           onClick={() => setIsOpen(false)}
         >
-          Lingeries
+          Roupas de Banho
         </a>
         <a
           href="/produtos/roupas-bebe"
